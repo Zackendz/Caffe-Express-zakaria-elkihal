@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/clientn"
+        android:id="@+id/clientna"
         android:text="client"
         app:layout_constraintTop_toBottomOf="@+id/title"
         android:layout_marginTop="50dp"
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/cofe"
         android:text="Cofe"
-        app:layout_constraintTop_toBottomOf="@+id/clientn"
+        app:layout_constraintTop_toBottomOf="@+id/clientna"
         android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
         android:textSize="20sp"

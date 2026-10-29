@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var QuantiteCroissant: TextView
 
     private lateinit var btnRemoveCroissant: Button
-    private lateinit var Client: EditText
+    private lateinit var client: EditText
     private lateinit var Totale: TextView
     private lateinit var btnvider:Button
     private lateinit var btnCommond: Button
@@ -46,10 +46,11 @@ class MainActivity : AppCompatActivity() {
         btnAddCroissant = findViewById(R.id.p3)
         btnRemoveCroissant = findViewById(R.id.m3)
         QuantiteCroissant = findViewById(R.id.qua3)
-        Client = findViewById(R.id.edtclient)
+        client = findViewById(R.id.edtclient)
         Totale = findViewById(R.id.total)
         btnvider = findViewById(R.id.vid)
         btnCommond = findViewById(R.id.comm)
+        var client =client
         var max: Int = 0
         var quacofe: Int =0
         var quathe: Int =0
@@ -103,26 +104,27 @@ class MainActivity : AppCompatActivity() {
             quacofe = 0
             quathe = 0
             quaCroissant = 0
-            Client.text.clear()
+            client.text.clear()
             Totale.text = "Total: 0 DH"
             Toast.makeText(this, "Commonde annuler", Toast.LENGTH_SHORT).show()
         }
         btnCommond.setOnClickListener {
-            if (Client.text.toString().trim().isEmpty()) {
-                Client.requestFocus()
-                Client.hint = "entrer votre nom"
+            if (client.text.toString().trim().isEmpty()) {
+                client.requestFocus()
+                client.hint = "entrer votre nom"
                 Toast.makeText(this, "Veuillez entrer votre nom", Toast.LENGTH_LONG).show()
             }
             else if (quacofe == 0 && quathe == 0 && quaCroissant == 0) {
                 Toast.makeText(this, "Le panier est vide", Toast.LENGTH_LONG).show()
             }
             else{
-                Toast.makeText(this, "Merci ${Client.text.toString()}:${quacofe+quathe+quaCroissant} articles,${max} DH", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Merci ${client.text.toString()}:${quacofe+quathe+quaCroissant} articles,${max} DH", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, RecapActivity::class.java)
-                intent.putExtra("Client", )
+                intent.putExtra("Client", client.text.toString())
                 intent.putExtra("Cofe", quacofe)
                 intent.putExtra("The", quathe)
                 intent.putExtra("Croissant", quaCroissant)
+                intent.putExtra("Totale",max)
                 startActivity(intent)
             }
         }
