@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var QuantiteCroissant: TextView
 
     private lateinit var btnRemoveCroissant: Button
+    private lateinit var btnPersonnalisation: Button
     private lateinit var client: EditText
     private lateinit var Totale: TextView
     private lateinit var btnvider:Button
@@ -46,17 +47,20 @@ class MainActivity : AppCompatActivity() {
         btnAddCroissant = findViewById(R.id.p3)
         btnRemoveCroissant = findViewById(R.id.m3)
         QuantiteCroissant = findViewById(R.id.qua3)
+        btnPersonnalisation = findViewById(R.id.personnalisation)
         client = findViewById(R.id.edtclient)
         Totale = findViewById(R.id.total)
         btnvider = findViewById(R.id.vid)
         btnCommond = findViewById(R.id.comm)
         var client =client
         var max: Int = 0
+        var prixecofe = 0
         var quacofe: Int =0
         var quathe: Int =0
         var quaCroissant: Int =0
         btnAddCofe.setOnClickListener {
             quacofe +=1
+            prixecofe +=10
             max +=10
             Quantitecofe.text=quacofe.toString()
             Totale.text = "Total: $max DH"
@@ -95,6 +99,12 @@ class MainActivity : AppCompatActivity() {
             }
             QuantiteCroissant.text = quaCroissant.toString()
             Totale.text = "Total: $max DH"
+        }
+        btnPersonnalisation.setOnClickListener {
+            val intent = Intent(this, PersonnalisationActivity::class.java)
+            intent.putExtra("Prixc", prixecofe)
+            intent.putExtra("Quantitecofe", quacofe)
+            startActivity(intent)
         }
         btnvider.setOnClickListener {
             Quantitecofe.text = "0"
